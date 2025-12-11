@@ -42,6 +42,7 @@ vector<vec3> parsePositions(string filename)
 
         result.push_back({stoul(first), stoul(second), stoul(third)});
     }
+    file.close();
     return result;
 }
 
