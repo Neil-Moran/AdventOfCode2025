@@ -28,24 +28,24 @@ vector<string> readInputFile(string filename)
 int main()
 {
     vector<string> rows = readInputFile("Day6/input.txt");
-    vector<unsigned int> operands;
+    vector<unsigned int> operators;
     {
-        string operandsRow = rows[rows.size()-1];
-        for(size_t c=0; c<operandsRow.length(); ++c)
+        string operatorsRow = rows[rows.size()-1];
+        for(size_t c=0; c<operatorsRow.length(); ++c)
         {
-            if(operandsRow[c] == '*')
+            if(operatorsRow[c] == '*')
             {
-                operands.push_back(0);
+                operators.push_back(0);
             }
-            else if(operandsRow[c] == '+')
+            else if(operatorsRow[c] == '+')
             {
-                operands.push_back(1);
+                operators.push_back(1);
             }
         }
     }
 
     size_t op = 0;
-    bool add = operands[op];
+    bool add = operators[op];
     unsigned long long total = add ? 0 : 1;
     unsigned long long result = 0;
     
@@ -69,7 +69,7 @@ int main()
         else
         {
             result += total;
-            add = operands[++op];
+            add = operators[++op];
             total = add ? 0 : 1;
         }
     }
